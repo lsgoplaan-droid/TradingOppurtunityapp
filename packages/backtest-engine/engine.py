@@ -98,7 +98,7 @@ def _compute_metrics(
         years = n_bars / 252.0 if n_bars > 0 else 1.0
     years = years if years > 0 else 1.0
     if years > 0 and initial_capital > 0:
-        cagr = ((final_equity / initial_capital) ** (1.0 / years) - 1) * 100
+        cagr = (final_equity / initial_capital) ** (1.0 / years) - 1
     else:
         cagr = 0.0
 
