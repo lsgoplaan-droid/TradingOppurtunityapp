@@ -1,0 +1,17 @@
+{
+  "id": "india_opt_nifty_bearish",
+  "name": "Nifty Bearish — Long Put",
+  "description": "Nifty 50 below 50-EMA with RSI 25-50 and negative MACD histogram — bearish breakdown for long put entry",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "less_than", "indicator": "ema50", "reference": "ema200"},
+    {"type": "less_than", "indicator": "rsi", "value": 50},
+    {"type": "greater_than", "indicator": "rsi", "value": 25},
+    {"type": "less_than", "indicator": "macd_hist", "value": 0}
+  ],
+  "signal_name": "Nifty Bearish Breakdown Put",
+  "template_id": "india_opt_nifty_bearish"
+}

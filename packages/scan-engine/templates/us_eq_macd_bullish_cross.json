@@ -1,0 +1,15 @@
+{
+  "id": "us_eq_macd_bullish_cross",
+  "name": "MACD Bullish Crossover",
+  "description": "MACD line crosses above signal line with MACD histogram above zero",
+  "market": "US",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 60,
+  "conditions": [
+    {"type": "crosses_above", "indicator": "macd_line", "reference": "macd_signal"},
+    {"type": "greater_than", "indicator": "macd_hist", "value": 0}
+  ],
+  "signal_name": "MACD Bullish Cross",
+  "template_id": "us_eq_macd_bullish_cross"
+}

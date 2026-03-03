@@ -1,0 +1,17 @@
+{
+  "id": "india_opt_nifty_bullish",
+  "name": "Nifty Bullish — Long Call",
+  "description": "Nifty 50 above 50-EMA with RSI 50-70 and positive MACD histogram — bullish momentum for long call entry",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "greater_than", "indicator": "ema50", "reference": "ema200"},
+    {"type": "greater_than", "indicator": "rsi", "value": 50},
+    {"type": "less_than", "indicator": "rsi", "value": 70},
+    {"type": "greater_than", "indicator": "macd_hist", "value": 0}
+  ],
+  "signal_name": "Nifty Bullish Momentum",
+  "template_id": "india_opt_nifty_bullish"
+}

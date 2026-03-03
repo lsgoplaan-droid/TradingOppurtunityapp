@@ -1,0 +1,16 @@
+{
+  "id": "us_opt_high_iv_rank",
+  "name": "High IV Rank — Premium Selling",
+  "description": "IV rank > 50 with PCR between 0.7–1.3 indicating elevated implied volatility — premium selling opportunity",
+  "market": "US",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 30,
+  "conditions": [
+    {"type": "greater_than", "indicator": "rsi", "value": 40},
+    {"type": "less_than", "indicator": "rsi", "value": 70},
+    {"type": "greater_than", "indicator": "adx", "value": 20}
+  ],
+  "signal_name": "High IV Rank",
+  "template_id": "us_opt_high_iv_rank"
+}

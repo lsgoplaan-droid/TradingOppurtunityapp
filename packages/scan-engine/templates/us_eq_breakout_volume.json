@@ -1,0 +1,16 @@
+{
+  "id": "us_eq_breakout_volume",
+  "name": "Breakout with Volume",
+  "description": "Close above Bollinger upper band with volume surge (1.5x average) and ADX > 25 confirming trend",
+  "market": "US",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "greater_than", "indicator": "close", "reference": "bb_upper"},
+    {"type": "volume_surge", "threshold": 1.5},
+    {"type": "greater_than", "indicator": "adx", "value": 25}
+  ],
+  "signal_name": "Volume Breakout",
+  "template_id": "us_eq_breakout_volume"
+}

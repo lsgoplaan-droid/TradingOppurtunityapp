@@ -1,0 +1,26 @@
+{
+  "id": "india_fo_gamma_play",
+  "name": "India F&O Gamma Play",
+  "description": "High net GEX near max pain with range-bound ADX \u00e2\u20ac\u201d gamma squeeze setup",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {
+      "type": "high_gex",
+      "threshold": 0
+    },
+    {
+      "type": "near_max_pain",
+      "threshold_pct": 2.0
+    },
+    {
+      "type": "less_than",
+      "indicator": "adx",
+      "value": 20
+    }
+  ],
+  "signal_name": "Gamma Play",
+  "template_id": "india_fo_gamma_play"
+}

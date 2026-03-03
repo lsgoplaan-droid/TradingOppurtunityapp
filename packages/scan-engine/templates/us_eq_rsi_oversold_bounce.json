@@ -1,0 +1,15 @@
+{
+  "id": "us_eq_rsi_oversold_bounce",
+  "name": "RSI Oversold Bounce",
+  "description": "RSI crosses back above 30 from oversold territory with close above EMA20",
+  "market": "US",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "greater_than", "indicator": "rsi", "value": 30},
+    {"type": "greater_than", "indicator": "close", "reference": "ema20"}
+  ],
+  "signal_name": "RSI Oversold Bounce",
+  "template_id": "us_eq_rsi_oversold_bounce"
+}

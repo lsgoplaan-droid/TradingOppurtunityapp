@@ -1,0 +1,16 @@
+{
+  "id": "us_opt_iron_condor_range",
+  "name": "Range-Bound — Iron Condor",
+  "description": "RSI between 45–55, low ADX, and price near Bollinger midline — low-volatility environment ideal for collecting premium via iron condor",
+  "market": "US",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 30,
+  "conditions": [
+    {"type": "between", "indicator": "rsi", "min": 45, "max": 55},
+    {"type": "less_than", "indicator": "adx", "value": 25},
+    {"type": "greater_than", "indicator": "adx", "value": 10}
+  ],
+  "signal_name": "Iron Condor Range",
+  "template_id": "us_opt_iron_condor_range"
+}

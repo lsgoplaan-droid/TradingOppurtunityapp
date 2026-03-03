@@ -1,0 +1,16 @@
+{
+  "id": "us_opt_straddle_squeeze",
+  "name": "Volatility Squeeze — Straddle",
+  "description": "Bollinger Band width near 52-week low and ADX < 20 indicates price coiling before a big move — straddle profits from either direction",
+  "market": "US",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 30,
+  "conditions": [
+    {"type": "less_than", "indicator": "bb_width", "value": 0.05},
+    {"type": "less_than", "indicator": "adx", "value": 20},
+    {"type": "between", "indicator": "rsi", "min": 40, "max": 60}
+  ],
+  "signal_name": "Straddle Volatility Squeeze",
+  "template_id": "us_opt_straddle_squeeze"
+}

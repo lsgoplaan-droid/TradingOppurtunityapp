@@ -1,0 +1,16 @@
+{
+  "id": "india_opt_nifty_condor",
+  "name": "Nifty Range-Bound — Iron Condor",
+  "description": "Nifty 50 RSI mid-range (45-55) with weak trend (ADX 10-25) — range-bound conditions ideal for iron condor",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "between", "indicator": "rsi", "min": 45, "max": 55},
+    {"type": "less_than", "indicator": "adx", "value": 25},
+    {"type": "greater_than", "indicator": "adx", "value": 10}
+  ],
+  "signal_name": "Nifty Iron Condor Range",
+  "template_id": "india_opt_nifty_condor"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "india_fo_max_pain_proximity",
+  "name": "India F&O Max Pain Proximity",
+  "description": "Spot within 1% of max pain with moderate IV rank and neutral PCR",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {
+      "type": "near_max_pain",
+      "threshold_pct": 1.0
+    },
+    {
+      "type": "greater_than",
+      "indicator": "iv_rank",
+      "value": 30
+    },
+    {
+      "type": "between",
+      "indicator": "oi_pcr",
+      "min": 0.7,
+      "max": 1.3
+    }
+  ],
+  "signal_name": "Max Pain Proximity",
+  "template_id": "india_fo_max_pain_proximity"
+}

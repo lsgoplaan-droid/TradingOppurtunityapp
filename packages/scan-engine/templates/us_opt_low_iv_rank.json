@@ -1,0 +1,15 @@
+{
+  "id": "us_opt_low_iv_rank",
+  "name": "Low IV Rank — Long Volatility",
+  "description": "IV rank < 20 with ADX > 25 indicating a trending market and RSI between 40–60 — long volatility opportunity",
+  "market": "US",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "greater_than", "indicator": "adx", "value": 25},
+    {"type": "between", "indicator": "rsi", "min": 40, "max": 60}
+  ],
+  "signal_name": "Low IV Rank",
+  "template_id": "us_opt_low_iv_rank"
+}

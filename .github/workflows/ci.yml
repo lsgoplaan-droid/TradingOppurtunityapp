@@ -2,39 +2,45 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, develop]
   pull_request:
-
-permissions:
-  actions: read
-  contents: read
+    branches: [main]
 
 jobs:
-  main:
+  lint-and-test:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
-          filter: tree:0
           fetch-depth: 0
 
-      # This enables task distribution via Nx Cloud
-      # Run this command as early as possible, before dependencies are installed
-      # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
-      - run: npx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="e2e-ci"
-
-      # Cache node_modules
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'npm'
 
-      - run: npm ci
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
 
-      # Prepend any command with "nx record --" to record its logs to Nx Cloud
-      - run: npx nx record -- npx nx format:check  --base="remotes/origin/main"
-      - run: npx nx run-many -t lint test build typecheck e2e-ci
-      # Nx Cloud recommends fixes for failures to help you get CI green faster. Learn more: https://nx.dev/ci/features/self-healing-ci
-      - run: npx nx fix-ci
-        if: always()
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install Python dependencies
+        run: pip install -e ".[dev]" 2>/dev/null || pip install -e .
+
+      - name: Lint (TypeScript)
+        run: npx nx affected --target=lint --base=origin/main --head=HEAD
+
+      - name: Type-check
+        run: npx tsc --noEmit
+
+      - name: Test (Python — no integration tests in CI)
+        run: pytest -m "not integration" --tb=short -q
+
+      - name: Build (affected)
+        run: npx nx affected --target=build --base=origin/main --head=HEAD

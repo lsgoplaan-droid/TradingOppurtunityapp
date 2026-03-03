@@ -1,0 +1,23 @@
+{
+  "id": "india_fo_pcr_extreme_bearish",
+  "name": "India F&O PCR Extreme Bearish",
+  "description": "Very high PCR OI (> 1.5) with elevated IV rank signals extreme bearish sentiment",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {
+      "type": "greater_than",
+      "indicator": "oi_pcr",
+      "value": 1.5
+    },
+    {
+      "type": "greater_than",
+      "indicator": "iv_rank",
+      "value": 40
+    }
+  ],
+  "signal_name": "PCR Extreme Bearish",
+  "template_id": "india_fo_pcr_extreme_bearish"
+}

@@ -2,20 +2,43 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "concurrently \"uvicorn apps.api.src.main:app --reload --port 8000\" \"nx serve web\"",
+    "start:api": "uvicorn apps.api.src.main:app --reload --port 8000",
+    "start:web": "nx serve web"
+  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@nx/js": "22.5.1",
+    "@nx/react": "^22.5.1",
+    "@nx/vite": "22.5.1",
+    "@nx/web": "22.5.1",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.8",
     "@swc/helpers": "0.5.18",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "@vitest/ui": "^4.0.0",
+    "concurrently": "^9.2.1",
+    "jiti": "2.4.2",
+    "jsdom": "~22.1.0",
     "nx": "22.5.1",
     "prettier": "^2.6.2",
+    "tailwindcss": "^4.2.1",
     "tslib": "^2.3.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "vite": "^7.0.0",
+    "vitest": "^4.0.0"
   },
   "workspaces": [
-    "packages/*"
-  ]
+    "packages/*",
+    "apps/*"
+  ],
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
 }

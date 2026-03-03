@@ -1,0 +1,17 @@
+{
+  "id": "us_opt_bullish_momentum",
+  "name": "Bullish Momentum — Long Call",
+  "description": "EMA50 above EMA200 with RSI recovering above 50 and MACD histogram positive — buy a call to ride the trend",
+  "market": "US",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "greater_than", "indicator": "ema50", "reference": "ema200"},
+    {"type": "greater_than", "indicator": "rsi", "value": 50},
+    {"type": "less_than", "indicator": "rsi", "value": 70},
+    {"type": "greater_than", "indicator": "macd_hist", "value": 0}
+  ],
+  "signal_name": "Bullish Momentum",
+  "template_id": "us_opt_bullish_momentum"
+}

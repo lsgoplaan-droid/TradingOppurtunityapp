@@ -1,0 +1,28 @@
+{
+  "id": "india_eq_rsi_oversold",
+  "name": "India RSI Oversold Mean Reversion",
+  "description": "RSI oversold below BB lower band \u00e2\u20ac\u201d mean reversion setup for NSE stocks",
+  "market": "INDIA",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {
+      "type": "less_than",
+      "indicator": "rsi",
+      "value": 30
+    },
+    {
+      "type": "less_than",
+      "indicator": "close",
+      "reference": "bb_lower"
+    },
+    {
+      "type": "less_than",
+      "indicator": "adx",
+      "value": 25
+    }
+  ],
+  "signal_name": "RSI Oversold",
+  "template_id": "india_eq_rsi_oversold"
+}

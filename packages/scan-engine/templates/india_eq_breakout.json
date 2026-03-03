@@ -1,0 +1,27 @@
+{
+  "id": "india_eq_breakout",
+  "name": "India Bollinger Breakout",
+  "description": "Close above BB upper band with strong trend and volume surge",
+  "market": "INDIA",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {
+      "type": "greater_than",
+      "indicator": "close",
+      "reference": "bb_upper"
+    },
+    {
+      "type": "greater_than",
+      "indicator": "adx",
+      "value": 25
+    },
+    {
+      "type": "volume_surge",
+      "threshold": 1.5
+    }
+  ],
+  "signal_name": "Bollinger Breakout",
+  "template_id": "india_eq_breakout"
+}

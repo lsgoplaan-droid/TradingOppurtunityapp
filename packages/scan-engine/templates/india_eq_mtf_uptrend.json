@@ -1,0 +1,39 @@
+{
+  "id": "india_eq_mtf_uptrend",
+  "type": "mtf",
+  "name": "MTF Uptrend Alignment (NSE)",
+  "description": "Weekly uptrend + daily momentum + MACD entry — Nifty 50 stocks",
+  "market": "INDIA",
+  "asset_class": "EQUITY",
+  "signal_name": "MTF Uptrend Alignment",
+  "template_id": "india_eq_mtf_uptrend",
+  "satisfy_all": true,
+  "timeframe_conditions": [
+    {
+      "timeframe": "1week",
+      "min_candles": 52,
+      "label": "Weekly Trend",
+      "conditions": [
+        { "type": "greater_than", "indicator": "close", "reference": "ema200" },
+        { "type": "greater_than", "indicator": "ema50", "reference": "ema200" }
+      ]
+    },
+    {
+      "timeframe": "1day",
+      "min_candles": 200,
+      "label": "Daily Setup",
+      "conditions": [
+        { "type": "greater_than", "indicator": "close", "reference": "ema50" },
+        { "type": "between",      "indicator": "rsi",   "min": 40, "max": 65 }
+      ]
+    },
+    {
+      "timeframe": "1day",
+      "min_candles": 60,
+      "label": "Daily Entry",
+      "conditions": [
+        { "type": "crosses_above", "indicator": "macd_line", "reference": "macd_signal" }
+      ]
+    }
+  ]
+}

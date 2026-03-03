@@ -1,0 +1,33 @@
+{
+  "id": "india_eq_momentum",
+  "name": "India Momentum",
+  "description": "Strong momentum setup: ROC > 5, RSI 55-75, price above EMA20, volume surge",
+  "market": "INDIA",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {
+      "type": "greater_than",
+      "indicator": "roc",
+      "value": 5
+    },
+    {
+      "type": "between",
+      "indicator": "rsi",
+      "min": 55,
+      "max": 75
+    },
+    {
+      "type": "greater_than",
+      "indicator": "close",
+      "reference": "ema20"
+    },
+    {
+      "type": "volume_surge",
+      "threshold": 1.2
+    }
+  ],
+  "signal_name": "Momentum",
+  "template_id": "india_eq_momentum"
+}

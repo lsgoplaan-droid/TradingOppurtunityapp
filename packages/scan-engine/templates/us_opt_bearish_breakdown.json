@@ -1,0 +1,17 @@
+{
+  "id": "us_opt_bearish_breakdown",
+  "name": "Bearish Breakdown — Long Put",
+  "description": "EMA50 below EMA200 with RSI below 50 and MACD histogram negative — buy a put to ride the downtrend",
+  "market": "US",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "less_than", "indicator": "ema50", "reference": "ema200"},
+    {"type": "less_than", "indicator": "rsi", "value": 50},
+    {"type": "greater_than", "indicator": "rsi", "value": 25},
+    {"type": "less_than", "indicator": "macd_hist", "value": 0}
+  ],
+  "signal_name": "Bearish Breakdown Put",
+  "template_id": "us_opt_bearish_breakdown"
+}

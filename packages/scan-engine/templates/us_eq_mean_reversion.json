@@ -1,0 +1,16 @@
+{
+  "id": "us_eq_mean_reversion",
+  "name": "Mean Reversion Setup",
+  "description": "RSI < 35 with close below Bollinger lower band and ADX < 20 indicating weak trend — mean reversion candidate",
+  "market": "US",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "less_than", "indicator": "rsi", "value": 35},
+    {"type": "less_than", "indicator": "close", "reference": "bb_lower"},
+    {"type": "less_than", "indicator": "adx", "value": 20}
+  ],
+  "signal_name": "Mean Reversion",
+  "template_id": "us_eq_mean_reversion"
+}

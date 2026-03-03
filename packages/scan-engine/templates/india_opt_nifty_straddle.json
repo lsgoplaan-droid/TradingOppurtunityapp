@@ -1,0 +1,16 @@
+{
+  "id": "india_opt_nifty_straddle",
+  "name": "Nifty Volatility Squeeze — Straddle",
+  "description": "Nifty 50 Bollinger Band width < 5% with weak trend (ADX < 20) and neutral RSI — volatility squeeze setup for straddle",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {"type": "less_than", "indicator": "bb_width", "value": 0.05},
+    {"type": "less_than", "indicator": "adx", "value": 20},
+    {"type": "between", "indicator": "rsi", "min": 40, "max": 60}
+  ],
+  "signal_name": "Nifty Straddle Volatility Squeeze",
+  "template_id": "india_opt_nifty_straddle"
+}

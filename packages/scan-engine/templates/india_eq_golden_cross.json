@@ -1,0 +1,28 @@
+{
+  "id": "india_eq_golden_cross",
+  "name": "India Golden Cross",
+  "description": "EMA50 crosses above EMA200 for NSE stocks",
+  "market": "INDIA",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 220,
+  "conditions": [
+    {
+      "type": "crosses_above",
+      "indicator": "ema50",
+      "reference": "ema200"
+    },
+    {
+      "type": "greater_than",
+      "indicator": "rsi",
+      "value": 50
+    },
+    {
+      "type": "greater_than",
+      "indicator": "adx",
+      "value": 20
+    }
+  ],
+  "signal_name": "Golden Cross",
+  "template_id": "india_eq_golden_cross"
+}

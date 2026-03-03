@@ -1,0 +1,30 @@
+{
+  "id": "us_eq_mtf_mean_reversion",
+  "type": "mtf",
+  "name": "MTF Mean Reversion",
+  "description": "Weekly long-term uptrend intact while daily is oversold — bounce setup",
+  "market": "US",
+  "asset_class": "EQUITY",
+  "signal_name": "MTF Mean Reversion",
+  "template_id": "us_eq_mtf_mean_reversion",
+  "satisfy_all": true,
+  "timeframe_conditions": [
+    {
+      "timeframe": "1week",
+      "min_candles": 52,
+      "label": "Weekly Trend",
+      "conditions": [
+        { "type": "greater_than", "indicator": "close", "reference": "sma200" }
+      ]
+    },
+    {
+      "timeframe": "1day",
+      "min_candles": 60,
+      "label": "Daily Oversold",
+      "conditions": [
+        { "type": "less_than", "indicator": "rsi", "value": 35 },
+        { "type": "less_than", "indicator": "close", "reference": "bb_lower" }
+      ]
+    }
+  ]
+}

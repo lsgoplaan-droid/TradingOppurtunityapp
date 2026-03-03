@@ -1,0 +1,15 @@
+{
+  "id": "us_eq_death_cross",
+  "name": "Death Cross",
+  "description": "EMA50 crosses below EMA200 with RSI < 50 — bearish trend change signal",
+  "market": "US",
+  "asset_class": "EQUITY",
+  "timeframe": "1day",
+  "min_candles": 220,
+  "conditions": [
+    {"type": "crosses_below", "indicator": "ema50", "reference": "ema200"},
+    {"type": "less_than", "indicator": "rsi", "value": 50}
+  ],
+  "signal_name": "Death Cross",
+  "template_id": "us_eq_death_cross"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "india_fo_high_iv_rank",
+  "name": "India F&O High IV Rank",
+  "description": "Elevated IV rank with neutral PCR \u00e2\u20ac\u201d premium selling opportunity",
+  "market": "INDIA",
+  "asset_class": "EQUITY_OPTIONS",
+  "timeframe": "1day",
+  "min_candles": 50,
+  "conditions": [
+    {
+      "type": "greater_than",
+      "indicator": "iv_rank",
+      "value": 60
+    },
+    {
+      "type": "between",
+      "indicator": "oi_pcr",
+      "min": 0.8,
+      "max": 1.2
+    }
+  ],
+  "signal_name": "High IV Rank",
+  "template_id": "india_fo_high_iv_rank"
+}
