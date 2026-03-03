@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -12,9 +14,14 @@ app = FastAPI(
     version="0.1.0",
 )
 
+# ALLOWED_ORIGINS env var: comma-separated list of allowed origins.
+# Defaults to localhost only (dev). In production set via Render env vars.
+_default_origins = "http://localhost:5173,http://localhost:4200"
+_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", _default_origins).split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:4200"],
+    allow_origins=_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
