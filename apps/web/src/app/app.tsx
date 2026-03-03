@@ -22,6 +22,7 @@ import { ScanResultsTable } from '../components/ScanResultsTable';
 import { ScanDetailView } from '../components/ScanDetailView';
 import { BacktestForm } from '../components/BacktestForm';
 import { BacktestResultPanel } from '../components/BacktestResultPanel';
+import { BacktestGuide } from '../components/BacktestGuide';
 import { WatchlistManager } from '../components/WatchlistManager';
 
 type Tab = 'scanner' | 'backtest';
@@ -381,7 +382,8 @@ export function App() {
           </aside>
 
           {/* Result panel */}
-          <main className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0 space-y-4">
+            <BacktestGuide />
             <div className="bg-white rounded-xl border border-gray-200 p-6">
               <BacktestResultPanel
                 result={backtestResult}
