@@ -1,0 +1,28 @@
+# Runtime dependencies for the FastAPI backend
+# Used by Render (and other PaaS) for pip install
+
+# Web framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.7.0
+
+# HTTP
+httpx>=0.27.0
+aiohttp>=3.9.0
+
+# Data / indicators
+pandas>=2.2.0
+numpy>=1.26.0
+pandas-ta>=0.3.14b
+
+# Market data (free, no API key required)
+yfinance>=0.2.40
+
+# Storage
+aiosqlite>=0.20.0
+
+# Utilities
+structlog>=24.1.0
+python-dotenv>=1.0.0
+apscheduler>=3.10.0
+websockets>=12.0
