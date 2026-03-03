@@ -35,7 +35,8 @@
   },
   "workspaces": [
     "packages/*",
-    "apps/*"
+    "apps/web",
+    "apps/api"
   ],
   "dependencies": {
     "react": "^19.0.0",
