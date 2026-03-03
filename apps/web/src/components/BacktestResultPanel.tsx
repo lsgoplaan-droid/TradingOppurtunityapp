@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BacktestResult, Trade } from '../api/client';
 import { EquityCurveChart } from './EquityCurveChart';
 
@@ -382,6 +383,7 @@ export function BacktestResultPanel({ result, loading, error }: Props) {
   }
 
   const totalReturnPositive = result.totalReturn >= 0;
+  const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
 
   return (
     <div className="space-y-4">
@@ -427,8 +429,8 @@ export function BacktestResultPanel({ result, loading, error }: Props) {
         </div>
       )}
 
-      {/* Equity curve */}
-      <EquityCurveChart result={result} height={180} />
+      {/* Equity curve + drawdown */}
+      <EquityCurveChart result={result} height={180} selectedTrade={selectedTrade} />
 
       {/* Trading instructions */}
       <TradingInstructions result={result} />
@@ -436,7 +438,15 @@ export function BacktestResultPanel({ result, loading, error }: Props) {
       {/* Trades table */}
       {result.trades.length > 0 && (
         <div>
-          <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Trades</div>
+          <div className="flex items-center justify-between mb-2">
+            <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+              Trades {selectedTrade && <span className="text-blue-500 normal-case font-normal">— click row to highlight on chart</span>}
+            </div>
+            {selectedTrade && (
+              <button onClick={() => setSelectedTrade(null)}
+                className="text-xs text-gray-400 hover:text-gray-600 underline">clear</button>
+            )}
+          </div>
           <div className="max-h-48 overflow-y-auto">
             <table className="min-w-full text-xs divide-y divide-gray-100">
               <thead className="sticky top-0 bg-white">
@@ -449,15 +459,27 @@ export function BacktestResultPanel({ result, loading, error }: Props) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
-                {result.trades.map((t, i) => (
-                  <tr key={i} className={t.pnl >= 0 ? 'text-green-700' : 'text-red-600'}>
+                {result.trades.map((t, i) => {
+                  const isSelected = selectedTrade === t;
+                  return (
+                  <tr key={i}
+                    onClick={() => setSelectedTrade(isSelected ? null : t)}
+                    className={`cursor-pointer transition-colors ${
+                      isSelected
+                        ? 'bg-blue-50 ring-1 ring-blue-300 ring-inset'
+                        : t.pnl >= 0
+                          ? 'text-green-700 hover:bg-green-50'
+                          : 'text-red-600 hover:bg-red-50'
+                    }`}
+                  >
                     <td className="px-2 py-1 font-mono">{t.entryDate}</td>
                     <td className="px-2 py-1 font-mono">{t.exitDate}</td>
                     <td className="px-2 py-1 text-right">{t.entryPrice.toFixed(2)}</td>
                     <td className="px-2 py-1 text-right">{t.exitPrice.toFixed(2)}</td>
                     <td className="px-2 py-1 text-right font-medium">{t.pnlPct.toFixed(2)}%</td>
                   </tr>
-                ))}
+                  );
+                })}
               </tbody>
             </table>
           </div>

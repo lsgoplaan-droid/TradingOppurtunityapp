@@ -1,0 +1,14 @@
+PLACEHOLDER ASSETS
+==================
+
+Run this command to generate the placeholder PNG assets before starting the app:
+
+  C:/Python314/python.exe create_assets.py
+
+Or manually create:
+  - icon.png        (1024x1024 recommended)
+  - adaptive-icon.png  (1024x1024 recommended)
+  - splash-icon.png    (200x200 recommended)
+
+The create_assets.py script (in apps/mobile/) will generate 1x1 transparent
+PNG placeholders so the app can be built immediately.

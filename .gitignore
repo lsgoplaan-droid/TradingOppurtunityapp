@@ -44,3 +44,19 @@ Thumbs.db
 .github/instructions/nx.instructions.md
 
 vite.config.*.timestamp*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+*.pyc
+
+# SQLite databases (runtime data)
+*.db
+*.sqlite
+data/
