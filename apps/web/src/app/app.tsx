@@ -394,6 +394,19 @@ export function App() {
           </main>
         </div>
       )}
+
+      {/* ── FOOTER DISCLAIMER ──────────────────────────────────────────── */}
+      <footer className="max-w-screen-xl mx-auto px-6 py-4 mt-2">
+        <p className="text-xs text-center text-gray-400 leading-relaxed">
+          <span className="font-semibold text-gray-500">Disclaimer:</span> This application
+          is built for educational and demonstration purposes only. It does not constitute
+          financial advice, investment recommendations, or a solicitation to buy or sell any
+          securities. Past performance shown in backtests does not guarantee future results.
+          Always conduct your own research, assess your personal risk tolerance, and consult
+          a registered Financial Advisor approved by your country's regulatory authority
+          before making any investment or trading decisions.
+        </p>
+      </footer>
     </div>
   );
 }
